@@ -86,5 +86,5 @@ Contains JSON-formatted Reddit post and comment data used for testing and valida
 **Paul Yoo**  
 M.S. in Applied Data Science  
 University of Southern California, Spring 2024  
-Model implementation, training optimization, performance evaluation, and report documentation  
+App development, Data collection, Analysis Model implementation, Performance evaluation, and Report documentation  
 [LinkedIn](https://www.linkedin.com/in/pkyoo) | [GitHub](https://github.com/PKYOO-116)
