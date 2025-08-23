@@ -1,26 +1,90 @@
-# DSCI551 Sp2024 Project Team 67
-## Web-based Application Development: <br /> Case Study on President Election Sentiment Analysis <br /> Using Firebase Realtime Database for Reddit Posts and Comments
+# Web-Based Sentiment Analysis System on Reddit for U.S. Presidential Election
 
-### Team Members: Armand Patel(Leader), Joshua Payapulli, Paul Yoo
+## Project Overview
 
-### < Project Outline >
-The final project report outlines the development of a web-based application for sentiment analysis on Reddit posts to predict U.S. presidential election outcomes. The team, consisting of Armand Patel, Joshua Payapulli, and Paul Yoo, utilized Firebase Realtime Database to manage and store data collected from Reddit, following changes in Twitter's API policy which restricted their initial plan to use Twitter data.
+This project presents a full-stack web application that collects, stores, and analyzes Reddit posts and comments related to the U.S. presidential election. The application performs sentiment analysis to assess public opinion trends and predicts support levels for major political candidates and parties.
 
-Key aspects of the project include:
-1. **Objective**: Develop a web-based application with databases and predict the election outcome by analyzing sentiments from Reddit comments.
-2. **Methodology**: The team employed Python scripts for data extraction and sentiment analysis using the Natural Language Toolkit (NLTK), analyzing comments to determine public opinion trends towards presidential candidates.
-3. **Database Utilization**: Data was distributed across four Firebase databases using a hash function based on commenter IDs for efficient data allocation and retrieval.
-4. **Technical Strategies**: Techniques such as partitioning, replication, and horizontal scaling were implemented to manage large data volumes effectively.
-5. **Implementation Changes**: The initial plan was adjusted from using Twitter to Reddit due to policy changes at Twitter, impacting data access.
-6. **Data Management and Functionality**: The application supports real-time data interaction, enabling users to insert, update, or delete Reddit posts and analyze sentiment scores.
-7. **Outcome and Learning**: The application can predict election outcomes based on sentiment analysis, and the project helped the team gain insights into managing large datasets and developing web-based applications.
+As part of the DSCI 551 course (Foundations of Data Management) at the University of Southern California in Spring 2024, the project emphasizes distributed data management using Firebase Realtime Database, scalable CRUD operations, and a user-interactive front-end built with React.
 
-The project demonstrated practical applications of data science in political forecasting and provided a robust platform for understanding and analyzing public sentiment, which could significantly influence electoral results.
+---
 
-<br/><br/><br/>
+## Features
 
+- Scrapes Reddit data using the PRAW API in Python
+- Performs sentiment analysis using NLTK's VADER analyzer
+- Calculates sentiment scores for keywords (Trump, Biden, Republican, Democrat)
+- Predicts leading candidate and support ratio based on sentiment aggregation
+- Distributes data across four Firebase databases via a hash-based partitioning scheme
+- Provides real-time CRUD (Create, Read, Update, Delete) functionality via frontend
+- Implements RESTful API using Flask for backend communication
 
-### < For Your Information >
-The final report is in the '3_Final_Report' Directory. <br />
-Code scripts can be easily found in the repository. <br />
-Fill free to contact us by email for inquiries. <br />
+---
+
+## Technology Stack
+
+- **Frontend:** React.js
+- **Backend:** Python (Flask)
+- **Database:** Firebase Realtime Database (NoSQL)
+- **Scraping & Analysis:** PRAW (Reddit API), NLTK (VADER sentiment analysis)
+
+---
+
+## Repository Structure
+
+This repository is organized as follows:
+
+### `web/`
+
+Frontend directory containing the React application.
+
+- Interactive interface for displaying Reddit post data
+- Includes buttons for inserting, editing, deleting, and filtering content
+- Sentiment results and predictions are shown on the homepage
+
+### `api/`
+
+Python backend implemented with Flask.
+
+- Handles all Reddit data collection, preprocessing, and Firebase interactions
+- Includes scripts like:
+  - `extract_data.py`: Scrapes Reddit content using keyword filters
+  - `score_parse.py`: Performs sentiment analysis and support prediction
+
+### `data/`
+
+Contains JSON-formatted Reddit post and comment data used for testing and validation.
+
+---
+
+## How to Run the App Locally (Terminal/MacOS)
+
+1. Navigate to the frontend directory:
+
+   ```bash
+   cd web
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+4. Visit http://localhost:3000 in your browser
+   The Flask backend and Firebase database must be active and properly configured for full functionality.
+
+---
+
+## Author
+
+**Paul Yoo**  
+M.S. in Applied Data Science  
+University of Southern California, Spring 2024  
+Model implementation, training optimization, performance evaluation, and report documentation  
+[LinkedIn](https://www.linkedin.com/in/pkyoo) | [GitHub](https://github.com/PKYOO-116)
