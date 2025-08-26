@@ -4,20 +4,19 @@ from firebase_admin import credentials, db
 def hash_db_index(text):
     return sum(ord(c) for c in text) % 4
     
-# Change credential path and firebase url to your own
 def initialize_apps():
     cred_paths = {
-        0: '####.json',
-        1: '####.json',
-        2: '####.json',
-        3: '####.json'
+        0: 'Firebase_Credentials/reddit-01-66725-firebase-adminsdk-lz9a1-2f248e3764.json',
+        1: 'Firebase_Credentials/reddit-02-aaa4b-firebase-adminsdk-j5jd0-fe92801ba2.json',
+        2: 'Firebase_Credentials/reddit-03-firebase-adminsdk-5b5v6-21dfa82d27.json',
+        3: 'Firebase_Credentials/reddit-04-firebase-adminsdk-8ejxe-96f77d6b57.json'
     }
 
     firebase_urls = {
-        0: 'https://####/',
-        1: 'https://####/',
-        2: 'https://####/',
-        3: 'https://####/'
+        0: 'https://reddit-01-66725-default-rtdb.firebaseio.com/',
+        1: 'https://reddit-02-aaa4b-default-rtdb.firebaseio.com/',
+        2: 'https://reddit-03-default-rtdb.firebaseio.com/',
+        3: 'https://reddit-04-default-rtdb.firebaseio.com/'
     }
 
     for index, cred_path in cred_paths.items():

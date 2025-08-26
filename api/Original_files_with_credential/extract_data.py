@@ -11,11 +11,10 @@ nltk.download('vader_lexicon')
 analyzer = SentimentIntensityAnalyzer()
 
 # Initialize Reddit API with given credentials
-# Change #### to your own credentials
 reddit = praw.Reddit(
-    client_id='####',
-    client_secret='####',
-    user_agent='####'
+    client_id='gxUTrYGyJ8Y2NntR5kOZQA',
+    client_secret='dlsKv6hx2KUOvRvZzvxroSOmzOE84g',
+    user_agent='sentiment analysis for upcoming election'
 )
 
 # Specify the directory to save JSON and CSV files
@@ -82,7 +81,7 @@ def save_to_firebase(comments):
         db_ref = dbs['database1'].child('comments').push(comment)  # Temporarily save in database1
         firebase_id = db_ref.key  # Retrieve Firebase ID after insert
         db_index = hash_index(firebase_id)  # Hash based on Firebase ID
-        correct_db_ref = dbs[f'database{db_index + 1}']
+        correct_db_ref = dbs[f'database{db_index + 1}']  # Get the correct database reference
         comment['firebase_id'] = firebase_id
         correct_db_ref.child('comments').child(firebase_id).set(comment)  # Save comment in the correct database
         print(f"Comment inserted with Firebase ID: {firebase_id} in database{db_index + 1}")

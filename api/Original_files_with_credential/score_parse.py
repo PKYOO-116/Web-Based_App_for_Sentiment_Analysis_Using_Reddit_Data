@@ -47,9 +47,17 @@ def calculate_percentage_difference(sentiment_scores):
     republican_avg = averages['republican']['average_positive'] + abs(averages['democrat']['average_negative'])
     democrat_avg = averages['democrat']['average_positive'] + abs(averages['republican']['average_negative'])
 
+    # print('---Trump avg: ', trump_avg,'---')
+    # print('---Biden avg: ', biden_avg,'---')
+    # print('---Republican avg: ', republican_avg,'---')
+    # print('---Democrat avg: ', democrat_avg,'---')
+
     # Calculate average total
     candidate_total_avg = trump_avg + biden_avg
     parties_total_avg = republican_avg + democrat_avg
+
+    # print('---Candidate total: ', candidate_total_avg, '---')
+    # print('---Party total: ', parties_total_avg, '---')
 
     if trump_avg == 0:
         trump_ratio = 0
@@ -71,8 +79,16 @@ def calculate_percentage_difference(sentiment_scores):
     else:
         democrat_ratio = democrat_avg / parties_total_avg
 
+    # print('---Trump ratio: ', trump_ratio*100, '%---')
+    # print('---Biden ratio: ', biden_ratio*100, '%---')
+    # print('---Republican ratio: ', republican_ratio*100, '%---')
+    # print('---Democrat ratio: ', democrat_ratio*100, '%---')
+
     trump_total = (trump_ratio + republican_ratio)/2*100
     biden_total = (biden_ratio + democrat_ratio)/2*100
+
+    # print('---Trump Total: ', trump_total, '%---')
+    # print('---Biden Total: ', biden_total, '%---')
 
     # Check Winner and Difference
     if trump_total > biden_total:
